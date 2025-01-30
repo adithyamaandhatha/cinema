@@ -104,6 +104,14 @@ export class MovieListComponent implements OnInit{
   onReload(){
     this.ngOnInit();
   }
+
+  onSortMd(){
+    this.sorted$=this.filtered$.pipe(map((moives)=>{
+      return moives.sort((a: any,b: any)=>{
+        return a.musicDirector.localeCompare(b.musicDirector)
+      });
+    }))
+  }
   
 
   
