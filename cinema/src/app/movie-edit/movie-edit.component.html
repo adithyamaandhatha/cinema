@@ -1,1 +1,46 @@
-<p>movie-edit works!</p>
+<div>
+    <h1>Update Form</h1>
+    <form action="" [formGroup]="updateForm" (ngSubmit)="onUpdate()">
+        <div>
+            <label for="title">Title: </label>
+            <input type="text" formControlName="title" placeholder="Give Title">
+            <div *ngIf="updateForm.get('title')?.invalid && (updateForm.get('title')?.touched || updateForm.get('title')?.dirty)">
+                <div *ngIf="updateForm.get('title')?.errors?.['required']">Title is required.</div>
+                <div *ngIf="updateForm.get('title')?.errors?.['maxlength']">Maximum length is 10 only.</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="title">Director: </label>
+            <input type="text" formControlName="director" placeholder="Give Director">
+            <div *ngIf="updateForm.get('director')?.invalid && updateForm.get('director')?.touched">
+                <div *ngIf="updateForm.get('director')?.errors?.['required']">Director is required.</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="musicDirector">Music Director: </label>
+            <input type="text" formControlName="musicDirector" placeholder="Give Music Director">
+            <div *ngIf="updateForm.get('musicDirector')?.invalid && updateForm.get('musicDirector')?.touched">
+                <div *ngIf="updateForm.get('musicDirector')?.errors?.['required']">Music Director is Required. </div>
+                <div *ngIf="updateForm.get('musicDirector')?.errors?.['minlength']">Minimum Length of 2 is Required.</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="releaseDate">Release Date: </label>
+            <input type="text" formControlName="releaseDate" placeholder="Give Music Director">
+            <div *ngIf="updateForm.get('releaseDate')?.invalid && updateForm.get('releaseDate')?.touched">
+                <div *ngIf="updateForm.get('releaseDate')?.errors?.['required']">Release Date is Required. </div>
+                <div *ngIf="updateForm.get('releaseDate')?.errors?.['dater']">Release Date should be in YYYY-MM-DD Format.</div>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="updateForm.invalid">Update</button>
+
+    </form>
+</div>
+<div *ngIf="status">
+    <p style="color: green;font-size: 20px;">Updated Successfully!!!</p>
+</div>
+

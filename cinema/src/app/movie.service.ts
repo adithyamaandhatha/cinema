@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieService {
-  private apiUrl: string = "https://crispy-parakeet-vjxqrqq6p6hx7xx-3000.app.github.dev/movies";
+  private apiUrl: string = "https://obscure-winner-p6q9wjp7jjvcr6xj-3000.app.github.dev/movies";
 
   constructor(private http: HttpClient) { }
 

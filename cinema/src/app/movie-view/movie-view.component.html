@@ -1,10 +1,11 @@
 <div style="text-align: center;">
     <h1>View Here</h1>
-<!-- <div *ngFor="let vd of viewData$ | async"> -->
-<p>{{ viewData$.id }}</p>
-<p>{{ viewData$.title }}</p>
-<p>{{ viewData$.director }}</p>
-<p>{{ viewData$.musicDirector }}</p>
-<p>{{ viewData$.releaseDate }}</p>
-<!-- </div> -->
+    <div *ngIf="viewData$ | async as vd" >
+    <p><strong>Id: </strong>{{ vd.id }}</p>
+    <p><strong>Title: </strong>{{ vd.title }}</p>
+    <p><strong>Director: </strong>{{ vd.director }}</p>
+    <p><strong>Music Director: </strong>{{ vd.musicDirector }}</p>
+    <p><strong>Release Date: </strong>{{ vd.releaseDate }}</p>
+    <!-- </div> -->
+    </div>
 </div>

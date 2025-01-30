@@ -1,1 +1,45 @@
-<p>movie-add works!</p>
+<div>
+    <h1>Add form</h1>
+    <form action="" [formGroup]="editForm" (ngSubmit)="onAdd()">
+        <div>
+            <label for="title">Title: </label>
+            <input type="text" formControlName="title" placeholder="Give Title">
+            <div *ngIf="editForm.get('title')?.invalid && (editForm.get('title')?.touched || editForm.get('title')?.dirty)">
+                <div *ngIf="editForm.get('title')?.errors?.['required']">Title is required.</div>
+                <div *ngIf="editForm.get('title')?.errors?.['maxlength']">Maximum length is 10 only.</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="title">Director: </label>
+            <input type="text" formControlName="director" placeholder="Give Director">
+            <div *ngIf="editForm.get('director')?.invalid && editForm.get('director')?.touched">
+                <div *ngIf="editForm.get('director')?.errors?.['required']">Director is required.</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="musicDirector">Music Director: </label>
+            <input type="text" formControlName="musicDirector" placeholder="Give Music Director">
+            <div *ngIf="editForm.get('musicDirector')?.invalid && editForm.get('musicDirector')?.touched">
+                <div *ngIf="editForm.get('musicDirector')?.errors?.['required']">Music Director is Required. </div>
+                <div *ngIf="editForm.get('musicDirector')?.errors?.['minlength']">Minimum Length of 2 is Required.</div>
+            </div>
+        </div>
+
+        <div>
+            <label for="releaseDate">Release Date: </label>
+            <input type="text" formControlName="releaseDate" placeholder="Give Music Director">
+            <div *ngIf="editForm.get('releaseDate')?.invalid && editForm.get('releaseDate')?.touched">
+                <div *ngIf="editForm.get('releaseDate')?.errors?.['required']">Release Date is Required. </div>
+                <div *ngIf="editForm.get('releaseDate')?.errors?.['dater']">Release Date should be in YYYY-MM-DD Format.</div>
+            </div>
+        </div>
+
+        <button type="submit" [disabled]="editForm.invalid">Add</button>
+
+    </form>
+</div>
+<div *ngIf="status">
+    <p style="color: green;font-size: 20px;">Inserted Successfully!!!</p>
+</div>

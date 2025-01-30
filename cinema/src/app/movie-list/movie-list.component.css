@@ -1,0 +1,15 @@
+div{
+    text-align: center;
+    color:currentColor;
+}
+
+table{
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+th {
+    color:darkgreen;
+}
+

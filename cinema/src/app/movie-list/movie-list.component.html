@@ -1,5 +1,21 @@
 <div>
+    
     <h1>OverAll View Here</h1>
+    <input type="text" style="padding: 10px;margin: 10px;width: 200px" [(ngModel)]="searchText" placeholder="Search By Id/Title/Director" (input)="onFilter()">
+    <div style="margin-bottom: 10px;">
+        <label for="sorting">Sort By Ascending(default): </label>
+    <select name="sorting" [(ngModel)]="sortBy" (change)="onSortingMethod()" style="padding: 10px;">
+        <option value="" disabled selected hidden>Choose an Option</option>
+        <option value="id">Id</option>
+        <option value="title">Title</option>
+        <option value="director">Director</option>
+        <option value="musicDirector">Music Director</option>
+    </select>
+    <button style="margin: 10px;" (click)="isAscending = !isAscending" (click)="onSortingMethod()">{{ isAscending ? 'Sort Descending' : 'Sort Ascending' }}</button>
+    </div>
+    <div>
+        <button style="padding: 10px;margin: 10px;" (click)="onReload()">Reload</button>
+    </div>
     <table border="1">
         <tr>
             <th>Id</th>
@@ -9,13 +25,14 @@
             <th>Release Date</th>
             <th colspan="3">Actions</th>
         </tr>
-        <tr *ngFor="let m of filtered$ | async">
+        <tr *ngFor="let m of sorted$ | async">
             <td>{{ m.id }}</td>
             <td>{{ m.title }}</td>
             <td>{{ m.director }}</td>
             <td>{{ m.musicDirector }}</td>
             <td>{{ m.releaseDate }}</td>
-            <td><button (click)="onView(m.id)">View</button></td>
+            <!-- <td><button [routerLink]="['/view/',m.id]">View</button></td> -->
+             <td><button (click)="onView(m.id)">View</button></td>
             <td><button (click)="onDelete(m.id)">Delete</button></td>
             <td><button (click)="onEdit(m.id)">Edit</button></td>
         </tr>

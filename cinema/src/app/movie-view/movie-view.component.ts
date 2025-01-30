@@ -10,7 +10,7 @@ import { Movie } from '../movie.model';
   styleUrls: ['./movie-view.component.css']
 })
 export class MovieViewComponent implements OnInit{
-  viewData$!:Movie;  
+  viewData$!: Observable<any>;  
   movieId: any;
   constructor(private ms: MovieService,private r: Router,private ar: ActivatedRoute){}
   
@@ -22,10 +22,11 @@ export class MovieViewComponent implements OnInit{
   }
 
   getInfo(id: any){
-    this.ms.getById(id).subscribe((d)=>
-    {
-      this.viewData$=d;
-    });
+    // this.ms.getById(id).subscribe((d)=>
+    // {
+    //   this.viewData$=d;
+    // });
+    this.viewData$=this.ms.getById(id);
   }
 
 
