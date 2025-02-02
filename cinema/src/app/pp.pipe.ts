@@ -9,10 +9,12 @@ export class PpPipe implements PipeTransform {
     if(!searchData){
       return movie;
     }
-    const m : String = searchData.trim().toLowerCase();
+    const m = searchData.trim().toLowerCase();
     return movie.filter((value)=>{
-      return value.id.toString().includes(m) || value.director.toLowerCase().includes(searchData) ||
-      value.title.toLowerCase().includes(searchData);
+      // return value.id.toString().includes(m) || value.director.toLowerCase().includes(searchData) ||
+      // value.title.toLowerCase().includes(searchData);
+      return JSON.stringify(value).toLowerCase().includes(m);
+  
     })
     
 

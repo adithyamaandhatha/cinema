@@ -25,6 +25,7 @@ export class MovieListComponent implements OnInit{
     this.data$=this.ms.getAllMovies();
     this.filtered$=this.data$;
     this.sorted$=this.filtered$;
+    this.onSortMd();
   }
 
   onDelete(id: any){
