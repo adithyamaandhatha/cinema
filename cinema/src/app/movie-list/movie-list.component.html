@@ -1,7 +1,7 @@
 <div>
     
     <h1>OverAll View Here</h1>
-    <input type="text" style="padding: 10px;margin: 10px;width: 200px" [(ngModel)]="searchText" placeholder="Search By Id/Title/Director" (input)="onFilter()">
+    <input type="text" style="padding: 10px;margin: 10px;width: 200px" [(ngModel)]="searchText" placeholder="Search By Id/Title" >
     <div style="margin-bottom: 10px;">
         <label for="sorting">Sort By Ascending(default): </label>
     <select name="sorting" [(ngModel)]="sortBy" (change)="onSortingMethod()" style="padding: 10px;">
@@ -26,7 +26,7 @@
             <th>Release Date</th>
             <th colspan="3">Actions</th>
         </tr>
-        <tr *ngFor="let m of sorted$ | async">
+        <tr *ngFor="let m of sorted$ | async | pp : searchText">
             <td>{{ m.id }}</td>
             <td>{{ m.title }}</td>
             <td>{{ m.director }}</td>

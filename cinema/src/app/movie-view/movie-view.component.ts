@@ -10,7 +10,7 @@ import { Movie } from '../movie.model';
   styleUrls: ['./movie-view.component.css']
 })
 export class MovieViewComponent implements OnInit{
-  viewData$!: Observable<any>;  
+  viewData$!: Observable<any[]>;  
   movieId: any;
   constructor(private ms: MovieService,private r: Router,private ar: ActivatedRoute){}
   

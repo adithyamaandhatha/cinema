@@ -1,6 +1,6 @@
 <div style="text-align: center;">
     <h1>View Here</h1>
-    <div *ngIf="viewData$ | async as vd" >
+    <div *ngFor="let vd of viewData$ | async" >
     <p><strong>Id: </strong>{{ vd.id }}</p>
     <p><strong>Title: </strong>{{ vd.title }}</p>
     <p><strong>Director: </strong>{{ vd.director }}</p>

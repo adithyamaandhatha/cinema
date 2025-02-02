@@ -42,32 +42,32 @@ export class MovieListComponent implements OnInit{
 
   }
 
-  onFilter(){
-    // if(this.searchText){
-    //   this.filtered$=this.data$.pipe(map((movies)=>
-    //     {
-    //     return movies.filter((movie: any)=>
-    //     {
-    //       return movie.id.includes(this.searchText) || movie.director.toLowerCase().includes(this.searchText.toLowerCase()) ||
-    //       movie.title.toLowerCase().includes(this.searchText.toLowerCase());
+  // onFilter(){
+  //   // if(this.searchText){
+  //   //   this.filtered$=this.data$.pipe(map((movies)=>
+  //   //     {
+  //   //     return movies.filter((movie: any)=>
+  //   //     {
+  //   //       return movie.id.includes(this.searchText) || movie.director.toLowerCase().includes(this.searchText.toLowerCase()) ||
+  //   //       movie.title.toLowerCase().includes(this.searchText.toLowerCase());
 
-    //     })
-    //   }))
-    // }
-    if(this.searchText){
-      this.filtered$=this.data$.pipe(map((movies)=>{
-        return movies.filter((movie: any)=>{
-          return movie.id.includes(this.searchText) || movie.director.toLowerCase().includes(this.searchText.toLowerCase()) ||
-           movie.title.toLowerCase().includes(this.searchText.toLowerCase());
-        })
-      }));
-      this.sorted$=this.filtered$;
-    }
-    else{
-      this.filtered$=this.data$;
-      this.sorted$=this.filtered$;
-    }
-  }
+  //   //     })
+  //   //   }))
+  //   // }
+  //   if(this.searchText){
+  //     this.filtered$=this.data$.pipe(map((movies)=>{
+  //       return movies.filter((movie: any)=>{
+  //         return movie.id.includes(this.searchText) || movie.director.toLowerCase().includes(this.searchText.toLowerCase()) ||
+  //          movie.title.toLowerCase().includes(this.searchText.toLowerCase());
+  //       })
+  //     }));
+  //     this.sorted$=this.filtered$;
+  //   }
+  //   else{
+  //     this.filtered$=this.data$;
+  //     this.sorted$=this.filtered$;
+  //   }
+  // }
 
   onSortingMethod(){
     // if(this.sortBy){

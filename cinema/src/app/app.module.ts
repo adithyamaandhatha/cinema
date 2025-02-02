@@ -46,6 +46,7 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieAddComponent } from './movie-add/movie-add.component';
 import { MovieEditComponent } from './movie-edit/movie-edit.component';
 import { MovieViewComponent } from './movie-view/movie-view.component';
+import { PpPipe } from './pp.pipe';
 
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { MovieViewComponent } from './movie-view/movie-view.component';
     MovieListComponent,
     MovieAddComponent,
     MovieEditComponent,
-    MovieViewComponent
+    MovieViewComponent,
+    PpPipe
   ],
   imports: [
     HttpClientModule,

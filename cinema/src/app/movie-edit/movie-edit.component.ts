@@ -34,7 +34,7 @@ export class MovieEditComponent implements OnInit{
   ngOnInit(): void {
     this.movieId=this.ar.snapshot.paramMap.get('id')!;
     this.ms.getById(this.movieId).subscribe((d)=>{
-      this.updateForm.patchValue(d);
+      this.updateForm.patchValue(d[0]);
     })
     
   }
