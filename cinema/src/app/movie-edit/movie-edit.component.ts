@@ -13,6 +13,7 @@ export class MovieEditComponent implements OnInit{
   updateForm!: FormGroup;
   movieId: any;
   status: boolean = false;
+  stats: boolean = false;
 
   constructor(private ms: MovieService,private ar: ActivatedRoute,private r: Router,private fb: FormBuilder){
     this.updateForm=fb.group({
@@ -35,16 +36,27 @@ export class MovieEditComponent implements OnInit{
     this.movieId=this.ar.snapshot.paramMap.get('id')!;
     this.ms.getById(this.movieId).subscribe((d)=>{
       this.updateForm.patchValue(d[0]);
+      this.stats=true;
     })
     
   }
 
   onUpdate(){
    if(this.updateForm.valid){
-    this.ms.updateMovie(this.updateForm.value,this.movieId).subscribe((d)=>{
-      console.log(d);
-      this.status=true;
-    });
+    if(this.movieId){
+      this.ms.updateMovie(this.updateForm.value,this.movieId).subscribe((d)=>{
+        console.log(d);
+        this.status=true;
+        
+      });
+      this.updateForm.reset();
+    }
+    else{
+      this.ms.addMovie(this.updateForm.value).subscribe(()=>{
+        this.updateForm.reset();
+        this.r.navigate([`/`])
+      });
+    }
    } 
   }
 }

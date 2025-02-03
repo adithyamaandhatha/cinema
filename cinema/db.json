@@ -36,18 +36,18 @@
       "id": "e1ae"
     },
     {
-      "title": "zsd",
-      "director": "zdsc",
-      "musicDirector": "zdc",
-      "releaseDate": "2222-22-22",
-      "id": "0b9f"
-    },
-    {
       "title": "Jersey",
       "director": "Gowtham Thinnuru",
       "musicDirector": "Ani GOD",
-      "releaseDate": "2020-10-23",
+      "releaseDate": "2020-10-24",
       "id": "6b20"
+    },
+    {
+      "id": "7f88",
+      "title": "varshit",
+      "director": "Poo choww",
+      "musicDirector": "Mani Gantan",
+      "releaseDate": "2025-02-02"
     }
   ]
 }

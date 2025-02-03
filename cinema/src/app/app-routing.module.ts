@@ -8,7 +8,7 @@ import { MovieViewComponent } from './movie-view/movie-view.component';
 
 const routes: Routes = [
   {path: '', component: MovieListComponent},
-  {path: 'add', component: MovieAddComponent},
+  {path: 'add', component: MovieEditComponent},
   {path: 'edit/:id', component: MovieEditComponent},
   {path: 'view/:id', component: MovieViewComponent},
   {path: '**', redirectTo:''}
