@@ -36,11 +36,11 @@
             </div>
         </div>
 
-        <button type="submit" [disabled]="updateForm.invalid" (click)="stats = !stats">{{ stats ? 'Update' : 'Add' }}</button>
+        <button type="submit" [disabled]="updateForm.invalid">{{ movieId ? 'Update' : 'Add' }}</button>
 
     </form>
 </div>
 <div *ngIf="status">
-    <p style="color: green;font-size: 20px;">Updated Successfully!!!</p>
+    <p style="color: green;font-size: 20px;">{{ successMessage }}</p>
 </div>
 

@@ -12,11 +12,9 @@
         <option value="musicDirector">Music Director</option>
     </select>
     <button style="margin: 10px;" (click)="isAscending = !isAscending" (click)="onSortingMethod()">{{ isAscending ? 'Sort Descending' : 'Sort Ascending' }}</button>
-    <button (click)="onSortMd()">Sort By Music Director Asc</button>
+    <!-- <button (click)="onSortMd()">Sort By Music Director Asc</button> -->
     </div>
-    <div>
-        <button style="padding: 10px;margin: 10px;" (click)="onReload()">Reload</button>
-    </div>
+    
     <table border="1">
         <tr>
             <th>Id</th>
@@ -26,14 +24,14 @@
             <th>Release Date</th>
             <th colspan="3">Actions</th>
         </tr>
-        <tr *ngFor="let m of sorted$ | async | pp : searchText">
+        <tr *ngFor="let m of sorted | pp : searchText">
             <td>{{ m.id }}</td>
             <td>{{ m.title }}</td>
             <td>{{ m.director }}</td>
             <td>{{ m.musicDirector }}</td>
             <td>{{ m.releaseDate }}</td>
             <!-- <td><button [routerLink]="['/view/',m.id]">View</button></td> -->
-             <td><button (click)="onView(m.id)">View</button></td>
+             <td><a routerLink="/view/{{m.id}}">View</a></td>
             <td><button (click)="onDelete(m.id)">Delete</button></td>
             <td><button (click)="onEdit(m.id)">Edit</button></td>
         </tr>

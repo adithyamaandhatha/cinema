@@ -7,35 +7,35 @@ import { Observable,map } from 'rxjs';
   providedIn: 'root'
 })
 export class MovieService {
-  private apiUrl: string = "https://potential-system-x4qxp5vr5pqcvgj6-3000.app.github.dev/movies";
+  private apiUrl: string = "https://ideal-eureka-x4qxp5v56rrf6p94-3000.app.github.dev/movies";
 
   constructor(private http: HttpClient) { }
 
-  getAllMovies(): Observable<any>{
+  getAll(): Observable<any>{
     return this.http.get(this.apiUrl);
+
   }
 
   getById(id: any): Observable<any>{
-    return this.http.get(`${this.apiUrl}/${id}`).pipe(map((data)=>
-    {
-      if(Array.isArray(data)){
-        return data;
+    return this.http.get(`${this.apiUrl}/${id}`).pipe(map((movies)=>{
+      if(Array.isArray(movies)){
+        return movies;
       }
       else{
-        return [data];
+        return [movies];
       }
-    }));
+    }))
   }
 
-  addMovie(movie: Movie): Observable<any>{
+  add(movie: Movie): Observable<any>{
     return this.http.post(this.apiUrl,movie);
   }
 
-  deleteMovie(id: any): Observable<any>{
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  update(id: any,movie: Movie): Observable<any>{
+    return this.http.put(this.apiUrl+"/"+id,movie);
   }
 
-  updateMovie(movie: Movie,id: any): Observable<any>{
-    return this.http.put(`${this.apiUrl}/${id}`,movie);
+  deleteById(id: any): Observable<any>{
+    return this.http.delete(this.apiUrl+"/"+id);
   }
 }
